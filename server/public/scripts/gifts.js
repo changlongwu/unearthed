@@ -1,5 +1,5 @@
 
-
+const requestedUrl = window.location.href.split('/').pop()
 const renderGifts = async()=>{
     const response = await fetch('/gifts')
     const data = await response.json()
@@ -60,7 +60,11 @@ const renderGifts = async()=>{
 
 
 
+if(requestedUrl){
+window.location.href = '../404.html'
+}
+else{
+    renderGifts()
+}
 
 
-
-renderGifts()
